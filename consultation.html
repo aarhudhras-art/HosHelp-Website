@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consultation</title>
+  <link rel="stylesheet" href="css/css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 data-i18n="consult_title"></h1>
+
+    <!-- Step 1: universal questions -->
+    <section id="s1">
+      <h2 data-i18n="q_title"></h2>
+      <p data-i18n="q_pregnant"></p>
+      <div class="yn" data-q="pregnant"><button data-v="yes" data-i18n="yes"></button><button data-v="no" data-i18n="no"></button></div>
+      <p data-i18n="q_child"></p>
+      <div class="yn" data-q="child"><button data-v="yes" data-i18n="yes"></button><button data-v="no" data-i18n="no"></button></div>
+      <p data-i18n="q_elderly"></p>
+      <div class="yn" data-q="elderly"><button data-v="yes" data-i18n="yes"></button><button data-v="no" data-i18n="no"></button></div>
+      <div id="notice" class="notice" data-i18n="nurse_alerted" hidden></div>
+      <button class="btn" id="next1" data-i18n="next"></button>
+    </section>
+
+    <!-- Step 2: details -->
+    <section id="s2" hidden>
+      <h2 data-i18n="d_title"></h2>
+      <label for="name" data-i18n="name"></label>
+      <div class="field"><input id="name" autocomplete="off"><button type="button" class="mic" data-mic="name">🎤</button></div>
+
+      <label for="age" data-i18n="age"></label>
+      <div class="field"><input id="age" type="number" inputmode="numeric" min="0" max="120"><button type="button" class="mic" data-mic="age">🎤</button></div>
+
+      <label for="gender" data-i18n="gender"></label>
+      <select id="gender">
+        <option value="" data-i18n="gender"></option>
+        <option value="male" data-i18n="male"></option>
+        <option value="female" data-i18n="female"></option>
+        <option value="other" data-i18n="other"></option>
+      </select>
+
+      <label for="mobile" data-i18n="mobile"></label>
+      <div class="field"><input id="mobile" type="tel" inputmode="tel"><button type="button" class="mic" data-mic="mobile">🎤</button></div>
+
+      <p id="err" class="notice" data-i18n="need_name" hidden></p>
+      <div class="row">
+        <button class="btn alt" id="back2" data-i18n="back"></button>
+        <button class="btn" id="next2" data-i18n="next"></button>
+      </div>
+    </section>
+
+    <!-- Step 3: doctor cards -->
+    <section id="s3" hidden>
+      <h2 data-i18n="doc_title"></h2>
+      <div class="docs" id="docs"></div>
+      <p id="saveMsg" class="notice" hidden></p>
+      <button class="btn alt" id="back3" data-i18n="back"></button>
+    </section>
+  </main>
+
+  
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="js/js/firebase.js"></script>
+<script src="js/js/common.js"></script>
+
+<script>
+  firebase.auth().signInAnonymously()
+    .then(() => {
+        console.log("Anonymous sign-in successful");
+      const script = document.createElement('script');
+      script.src = 'js/js/consult.js';
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Anonymous sign-in failed:', error));
+</script>
+</body>
+</html>

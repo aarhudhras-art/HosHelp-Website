@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ward boy</title>
+  <link rel="stylesheet" href="css/css/style.css">
+</head>
+<body data-noemergency="1">
+  <main class="container">
+    <div class="row">
+      <h1>Consultation room</h1>
+      <button class="btn alt" onclick="staffLogout()">Sign out</button>
+    </div>
+    <label for="dept">Department</label>
+    <select id="dept"></select>
+
+    <h2>With the doctor now</h2>
+    <div id="called"></div>
+
+    <button class="btn" id="next">Call next patient</button>
+
+    <h2>Waiting</h2>
+    <div id="waiting"></div>
+
+    <button class="btn alt" id="reset">Reset all demo data</button>
+  </main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <!-- firebase app + firestore + auth scripts (same version) -->
+  <script src="js/js/firebase.js"></script>
+  <script src="js/js/common.js"></script>
+  <script src="js/js/staff.js"></script>
+  <script src="js/js/wardboy.js"></script>
+</body>
+</html>

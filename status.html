@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your token</title>
+  <link rel="stylesheet" href="css/css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 data-i18n="status_title"></h1>
+
+    <section id="card" hidden>
+      <div class="card" id="tokenCard">
+        <div class="token" id="tokenNo">-</div>
+        <div class="kv"><span data-i18n="department"></span><b id="dept"></b></div>
+        <div class="kv"><span data-i18n="doctor"></span><b id="doc"></b></div>
+        <div class="kv"><span data-i18n="room"></span><b id="room"></b></div>
+        <div class="kv"><span data-i18n="ahead"></span><b id="ahead"></b></div>
+        <div class="kv"><span data-i18n="wait"></span><b id="wait"></b></div>
+      </div>
+      <p id="turn" class="turn" data-i18n="your_turn" hidden></p>
+      <a id="nav" class="btn" href="navigate.html" data-i18n="navigate"></a>
+      <button class="btn alt" data-speak="#card" data-i18n="read_aloud"></button>
+      <p class="center" data-i18n="live"></p>
+    </section>
+
+    <p id="notfound" class="notice" data-i18n="not_found" hidden></p>
+  </main>
+
+ 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="js/js/firebase.js"></script>
+<script src="js/js/common.js"></script>
+<script src="js/js/speech.js"></script>
+
+<script>
+  firebase.auth().signInAnonymously()
+    .then(() => {
+      const script = document.createElement('script');
+      script.src = 'js/js/status.js';
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Status page sign-in failed:', error));
+</script>
+</body>
+</html>

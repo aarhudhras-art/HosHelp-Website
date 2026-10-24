@@ -1,0 +1,9 @@
+[
+  {"id":"general","icon":"🩺","name":{"en":"General Medicine","ta":"பொது மருத்துவம்","hi":"सामान्य चिकित्सा"},"doctor":"Dr. A. Kumar","room":"Ward 4","avgMin":8},
+  {"id":"children","icon":"🧒","name":{"en":"Children","ta":"குழந்தைகள் நலம்","hi":"बाल रोग"},"doctor":"Dr. S. Priya","room":"Ward 2","avgMin":6},
+  {"id":"women","icon":"🤰","name":{"en":"Women and pregnancy","ta":"மகளிர் மற்றும் கர்ப்பம்","hi":"महिला और गर्भावस्था"},"doctor":"Dr. R. Lakshmi","room":"Ward 3","avgMin":10},
+  {"id":"bones","icon":"🦴","name":{"en":"Bones and joints","ta":"எலும்பு மற்றும் மூட்டு","hi":"हड्डी और जोड़"},"doctor":"Dr. M. Rajan","room":"Room 12","avgMin":10},
+  {"id":"ent","icon":"👂","name":{"en":"Ear, nose, throat","ta":"காது மூக்கு தொண்டை","hi":"कान नाक गला"},"doctor":"Dr. K. Anand","room":"Room 14","avgMin":7},
+  {"id":"eyes","icon":"👁️","name":{"en":"Eyes","ta":"கண்","hi":"आँख"},"doctor":"Dr. N. Meena","room":"Room 15","avgMin":7},
+  {"id":"skin","icon":"🧴","name":{"en":"Skin","ta":"தோல்","hi":"त्वचा"},"doctor":"Dr. V. Selvi","room":"Room 16","avgMin":6}
+]

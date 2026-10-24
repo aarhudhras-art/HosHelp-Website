@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find your way</title>
+  <link rel="stylesheet" href="css/css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 data-i18n="nav_title"></h1>
+
+    <label for="dest" data-i18n="where_to"></label>
+    <select id="dest"></select>
+
+    <div class="mapbox">
+      <svg id="map" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1000" height="600" fill="#f1f5f9"/>
+        <image href="images/ground-floor.png" width="1000" height="600" preserveAspectRatio="xMidYMid meet" onerror="this.remove()"/>
+        <g id="edges"></g>
+        <polyline id="route" class="route" points=""/>
+        <g id="labels"></g>
+        <g id="dot">
+          <circle r="16" fill="#2563eb" stroke="#fff" stroke-width="4"/>
+          <text data-i18n="you_are_here" y="-26" text-anchor="middle" class="lbl"></text>
+        </g>
+      </svg>
+    </div>
+
+    <p id="stepCount" class="center"></p>
+    <p id="stepText" class="step-text center"></p>
+
+    <div class="row">
+      <button class="btn alt" id="prev" data-i18n="back"></button>
+      <button class="btn" id="nextStep" data-i18n="next_step"></button>
+    </div>
+    <button class="btn alt" data-speak="#stepText" data-i18n="read_aloud"></button>
+  </main>
+
+  <script src="js/js/common.js"></script>
+  <script src="js/js/speech.js"></script>
+  <script src="js/js/map.js"></script>
+</body>
+</html>

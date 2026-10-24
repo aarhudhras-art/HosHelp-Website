@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff login</title>
+  <link rel="stylesheet" href="css/css/style.css">
+</head>
+<body data-noemergency="1">
+  <main class="container">
+    <h1>Staff login</h1>
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="username">
+    <label for="pw">Password</label>
+    <input id="pw" type="password" autocomplete="current-password">
+    <p id="err" class="notice" hidden></p>
+    <button class="btn" id="go">Log in</button>
+  </main>
+
+  <!-- same firebase-app-compat + firestore-compat lines as your other pages, then: -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <script src="js/js/firebase.js"></script>
+  <script src="js/js/common.js"></script>
+  <script src="js/js/staff.js"></script>
+  <script>
+    $('go').onclick = async () => {
+      $('err').hidden = true;
+      try {
+        const c = await firebase.auth().signInWithEmailAndPassword($('email').value.trim(), $('pw').value);
+        const page = ROLE_PAGE[roleOf(c.user)];
+        if (!page) throw new Error('no role');
+        location.href = page;
+      } catch (e) {
+        $('err').textContent = 'Wrong email or password.';
+        $('err').hidden = false;
+      }
+    };
+  </script>
+</body>
+</html>

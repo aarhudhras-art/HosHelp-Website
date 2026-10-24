@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nurse dashboard</title>
+  <link rel="stylesheet" href="css/css/style.css">
+</head>
+<body data-noemergency="1">
+  <main class="container wide">
+    <h1>Nurse dashboard</h1>
+    <div class="row">
+      <button class="btn alt" id="snd">🔔 Turn on alert sound</button>
+      <button class="btn alt" onclick="staffLogout()">Sign out</button>
+    </div>
+    <h2>Alerts</h2>
+    <div id="alerts"></div>
+    <p id="none" class="card">No alerts right now.</p>
+    <h2>Patients waiting</h2>
+    <div id="queues" class="card"></div>
+  </main>
+
+
+<!-- Firebase libraries -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<!-- Project scripts -->
+<script src="js/js/firebase.js"></script>
+<script src="js/js/common.js"></script>
+
+<script src="js/js/nurse.js"></script>

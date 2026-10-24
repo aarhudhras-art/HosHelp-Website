@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Counter registration</title>
+  <link rel="stylesheet" href="css/css/style.css">
+</head>
+<body data-noemergency="1">
+  <main class="container wide">
+    <div class="row noprint">
+      <h1>Counter registration</h1>
+      <button class="btn alt" onclick="staffLogout()">Sign out</button>
+    </div>
+
+    <div id="formBox">
+      <label for="name">Name</label><input id="name">
+      <label for="age">Age</label><input id="age" type="number" inputmode="numeric">
+      <label for="gender">Gender</label>
+      <select id="gender">
+        <option value="male">Male</option><option value="female">Female</option><option value="other">Other</option>
+      </select>
+      <label for="mobile">Mobile (optional)</label><input id="mobile" type="tel">
+      <label for="lang">Patient's language</label>
+      <select id="lang">
+        <option value="en">English</option><option value="ta">தமிழ்</option><option value="hi">हिन्दी</option>
+      </select>
+      <label for="dept">Department</label><select id="dept"></select>
+      <label><input type="checkbox" id="prio" style="width:auto"> Pregnant / child / elderly / disabled (priority)</label>
+      <p id="err" class="notice" hidden>Please enter name and age.</p>
+      <button class="btn" id="reg">Register and get token</button>
+      <button class="btn alt" id="urgent">🚨 Raise urgent help flag</button>
+      <p id="urgentMsg" class="notice" hidden>Nurses have been alerted.</p>
+    </div>
+
+    <div id="result" class="card center" hidden>
+      <p id="rDept"></p>
+      <div class="token" id="tok"></div>
+      <div id="qr" style="display:inline-block;margin:16px 0"></div>
+      <p class="noprint">Patient scans this to see token, queue and directions.</p>
+      <button class="btn noprint" onclick="window.print()">Print slip</button>
+      <button class="btn alt noprint" id="again">Next patient</button>
+    </div>
+  </main>
+
+  <!-- firebase app + firestore + auth scripts (same version) -->
+ 
+<!-- Firebase libraries must load first -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<!-- QR code library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- Your project scripts -->
+<script src="js/js/firebase.js"></script>
+<script src="js/js/common.js"></script>
+<script src="js/js/staff.js"></script>
+<script src="js/js/counter.js"></script>

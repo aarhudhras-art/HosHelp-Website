@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {"id":"gate","x":80,"y":300},
+    {"id":"casualty","x":80,"y":110},
+    {"id":"registration","x":250,"y":170},
+    {"id":"helpdesk","x":250,"y":430},
+    {"id":"j1","x":250,"y":300,"junction":true},
+    {"id":"j2","x":450,"y":300,"junction":true},
+    {"id":"j3","x":650,"y":300,"junction":true},
+    {"id":"j4","x":850,"y":300,"junction":true},
+    {"id":"general","x":450,"y":170},
+    {"id":"children","x":450,"y":430},
+    {"id":"women","x":650,"y":170},
+    {"id":"bones","x":650,"y":430},
+    {"id":"ent","x":850,"y":170},
+    {"id":"eyes","x":850,"y":430},
+    {"id":"skin","x":950,"y":300}
+  ],
+  "edges": [
+    ["gate","casualty"],["gate","j1"],["j1","registration"],["j1","helpdesk"],
+    ["j1","j2"],["j2","j3"],["j3","j4"],
+    ["j2","general"],["j2","children"],["j3","women"],["j3","bones"],
+    ["j4","ent"],["j4","eyes"],["j4","skin"]
+  ]
+}
